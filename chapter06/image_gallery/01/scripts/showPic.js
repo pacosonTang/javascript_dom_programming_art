@@ -1,3 +1,4 @@
+// 改变占位符的图片和标题
 function showPic(whichpic) {
   if (!document.getElementById("placeholder")) return true;
   var source = whichpic.getAttribute("href");
@@ -23,6 +24,7 @@ function prepareGallery() {
   var gallery = document.getElementById("imagegallery");
   var links = gallery.getElementsByTagName("a");
   for ( var i=0; i < links.length; i++) {
+	  // 添加事件处理函数,当点击的时候
     links[i].onclick = function() {
       return showPic(this);
 	}

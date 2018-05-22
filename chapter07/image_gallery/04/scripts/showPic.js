@@ -1,3 +1,6 @@
+// 在 document加载完毕后，执行addLoadEvent函数，
+// 以绑定 func函数的
+
 function addLoadEvent(func) {
   var oldonload = window.onload;
   if (typeof window.onload != 'function') {

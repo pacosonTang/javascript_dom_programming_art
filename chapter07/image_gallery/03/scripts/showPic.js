@@ -58,5 +58,14 @@ function preparePlaceholder() {
   gallery.parentNode.insertBefore(description,gallery);
 }
 
+function insertAfter(newElement, target) {
+	var parent = target.parentNode;
+	if (parent.lastChild == target ){
+	parent.appendChild(newElement);
+	} else {
+	parent.insertBefore(newElement, target.nextSibling);
+	}
+}
+
 addLoadEvent(preparePlaceholder);
 addLoadEvent(prepareGallery);

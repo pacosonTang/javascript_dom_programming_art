@@ -1,3 +1,4 @@
+// 移动元素位置的函数
 function moveElement(elementID,final_x,final_y,interval) {
   if (!document.getElementById) return false;
   if (!document.getElementById(elementID)) return false;

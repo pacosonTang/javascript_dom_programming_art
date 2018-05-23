@@ -1,42 +1,42 @@
 function displayAccesskeys() {
   if (!document.getElementsByTagName || !document.createElement || !document.createTextNode) return false;
-// get all the links in the document
+// 获取所有链接元素
   var links = document.getElementsByTagName("a");
-// create an array to store the accesskeys
+// 创建一个数组存储快捷键
   var akeys = new Array();
-// loop through the links
+// 遍历链接
   for (var i=0; i<links.length; i++) {
     var current_link = links[i];
-// if there is no accesskey attribute, continue the loop
+// 如果浏览器不支持快捷键属性，则继续
     if (current_link.getAttribute("accesskey") == null) continue;
-// get the value of the accesskey
+// 获取 accesskey 属性值；
     var key = current_link.getAttribute("accesskey");
-// get the value of the link text
+// 获取链接元素 <a> 的节点值；
     var text = current_link.lastChild.nodeValue;
 // add them to the array
     akeys[key] = text;
   }
-// create the list
+// 创建一个无序列表
   var list = document.createElement("ul");
-// loop through the accesskeys
+// 遍历快捷键
   for (key in akeys) {
     var text = akeys[key];
-//  create the string to put in the list item
+//  创建一个字符串用于存储 快捷键 和 对应的链接
     var str = key + " : "+text;
-// create the list item
+// 创建一个列表项 <li>
     var item = document.createElement("li");
     var item_text = document.createTextNode(str);
     item.appendChild(item_text);
-// add the list item to the list
+// 加入到列表
     list.appendChild(item);
   }
-// create a headline
+// 创建标题
   var header = document.createElement("h3");
   var header_text = document.createTextNode("Accesskeys");
   header.appendChild(header_text);
-// add the headline to the body
+// 添加标题到 <body> 元素
   document.body.appendChild(header);
-// add the list to the body
+// 添加列表到 <body> 元素
   document.body.appendChild(list);
 }
 addLoadEvent(displayAccesskeys);

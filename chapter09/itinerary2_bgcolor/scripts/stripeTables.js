@@ -7,7 +7,8 @@ function stripeTables() {
     var rows = tables[i].getElementsByTagName("tr");
     for (var j=0; j<rows.length; j++) {
       if (odd == true) {
-        addClass(rows[j],"odd");
+		  // 直接改变奇数行的背景色实现斑马效果
+        rows[j].style.backgroundColor = "#ffc";
         odd = false;
       } else {
         odd = true;

@@ -1,19 +1,21 @@
+// 
 function prepareSlideshow() {
-// Make sure the browser understands the DOM methods
+// 浏览器是否支持以下方法；
   if (!document.getElementsByTagName) return false;
   if (!document.getElementById) return false;
-// Make sure the elements exist
+// 确保元素存在
   if (!document.getElementById("linklist")) return false;
   if (!document.getElementById("preview")) return false;
-// Apply styles to the preview image
+// 为元素 preview添加style 样式
   var preview = document.getElementById("preview");
   preview.style.position = "absolute";
   preview.style.left = "0px";
   preview.style.top = "0px";
-// Get all the links in the list
+// 获取元素 <ol>
   var list = document.getElementById("linklist");
+  // 获取所有链接 <a>
   var links = list.getElementsByTagName("a");
-// Attach the animation behavior to the mouseover event
+// 绑定动画效果到链接
   links[0].onmouseover = function() {
     moveElement("preview",-100,0,10);
   }
@@ -24,4 +26,5 @@ function prepareSlideshow() {
     moveElement("preview",-300,0,10);
   }
 }
+
 addLoadEvent(prepareSlideshow);

@@ -42,4 +42,21 @@ function moveElement(elementID,final_x,final_y,interval) {
   movement = setTimeout(repeat,interval);
 }
 
+// document加载完毕后，调用 window.onload 函数；
+// 即把func函数加入了 onload加载函数列表中；
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      oldonload();
+      func();
+    }
+  }
+}
+
 addLoadEvent(positionMessage);
+
+
+
